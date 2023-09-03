@@ -22,7 +22,7 @@ function App() {
       <div>
         <button onClick={() => setCount((count) => count - money)}>
           tzeduka
-        </button><> $</>
+        </button><> </>
         <input
           value={money}
           onChange={(e) => setMoney(e.target.value)}
