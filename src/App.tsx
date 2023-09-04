@@ -1,9 +1,11 @@
 // @ts-nocheck
 
-import { useState } from 'react';
-import './style.css';
-import firebaseConfig from './firebaseConfig';
-export const App: FC<{ name: string }> = ({ name }) => {
+import { useState } from 'react'
+
+import './App.css'
+
+function App() {
+ 
   const [count, setCount] = useState(0);
   const [money, setMoney] = useState('');
 
@@ -42,9 +44,11 @@ export const App: FC<{ name: string }> = ({ name }) => {
           massir
         </button>
         <p>
-          Your {feedback}: ${result.toFixed(2)}
+          Your {feedback}: ${Math.ceil(result)}
         </p>
       </div>
     </div>
   );
 };
+
+export default App
