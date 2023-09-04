@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import './style.css';
-
+import firebaseConfig from './firebaseConfig';
 export const App: FC<{ name: string }> = ({ name }) => {
   const [count, setCount] = useState(0);
   const [money, setMoney] = useState('');
