@@ -1,20 +1,25 @@
 // @ts-nocheck
 
-import { useState } from 'react'
+import { useState } from 'react';
+import './style.css';
 
-import './App.css'
-
-function App() {
- 
+export const App: FC<{ name: string }> = ({ name }) => {
   const [count, setCount] = useState(0);
   const [money, setMoney] = useState('');
 
-  let feedback = "";
+  let feedback = '';
   if (count < 0) {
-    feedback = "tzeduka";
+    feedback = 'tzeduka';
   } else {
-    feedback = "massir";
-  } 
+    feedback = 'massir';
+  }
+
+  let result = '';
+  if (count < 0) {
+    result = Math.abs(count);
+  } else {
+    result = count;
+  }
 
   return (
     <div>
@@ -22,7 +27,8 @@ function App() {
       <div>
         <button onClick={() => setCount((count) => count - money)}>
           tzeduka
-        </button><> </>
+        </button>
+        <> $</>
         <input
           value={money}
           onChange={(e) => setMoney(e.target.value)}
@@ -32,13 +38,13 @@ function App() {
             width: '185px',
           }}
         />
-        <button onClick={() => setCount((count) => (count + money / 10))}>
+        <button onClick={() => setCount((count) => count + money / 10)}>
           massir
         </button>
-        <p>Your {feedback}: ${count.toFixed(2)}</p>
+        <p>
+          Your {feedback}: ${result.toFixed(2)}
+        </p>
       </div>
     </div>
-  )
-}
-
-export default App
+  );
+};
